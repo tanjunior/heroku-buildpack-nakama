@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+BASEDIR=$(dirname $(dirname "$0"))
+BUILD_DIR=$1
+
+source "$BASEDIR/lib/heroku_funcs.sh"
+
+download_nakama_binary
+download_cockroachdb
+migrate_database_schema
+start_nakama_server
