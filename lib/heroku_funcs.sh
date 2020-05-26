@@ -18,10 +18,10 @@ function download_cockroachdb() {
   COCKROACHDB_URL=https://binaries.cockroachdb.com/cockroach-v20.1.0.linux-amd64.tgz
   COCKROACHDB="$CACHE_DIR/cockroachdb"
 
-  if [ ! -f $COCKROACHDB/webassembly_debug.zip ]; then
+  if [ ! -f $COCKROACHDB/cockroach-v20.1.0.linux-amd64 ]; then
     output_section "Downloading CockroachDB..."
     curl -s $COCKROACHDB_URL -o cockroachdb.tfz || exit 1
-    tar xvz cockroachdb.tfz
+    tar xvz cockroachdb.tgz
     mkdir -p $COCKROACHDB
     cp cockroach-v20.1.0.linux-amd64/cockroach $COCKROACHDB
     # cp -i cockroach-v20.1.0.linux-amd64/cockroach /usr/local/bin/
