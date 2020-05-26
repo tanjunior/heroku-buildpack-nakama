@@ -3,6 +3,7 @@
 BASEDIR=$(dirname $(dirname "$0"))
 BUILD_DIR=$1
 
+source "$BASEDIR/lib/misc_funcs.sh"
 source "$BASEDIR/lib/heroku_funcs.sh"
 
 download_nakama_binary
