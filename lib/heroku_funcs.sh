@@ -5,8 +5,8 @@ function download_nakama_binary() {
     output_section "Downloading Nakama Binary..."
     curl -s $NAKAMA_BINARY_URL -o nakama.tar.gz || exit 1
     tar xfz nakama.tar.gz
-    cp -i nakama $CACHE_DIR/nakama.64
-    cp -i nakama /usr/local/bin
+    cp nakama $CACHE_DIR/nakama.64
+    # cp -i nakama /usr/local/bin
     touch "$CACHE_DIR/._sc_"
   else
     output_section "Using cached Nakama Binary"
@@ -23,8 +23,8 @@ function download_cockroachdb() {
     curl -s $COCKROACHDB_URL -o cockroachdb.tfz || exit 1
     tar xvz cockroachdb.tfz
     mkdir -p $COCKROACHDB
-    cp -i cockroach-v20.1.0.linux-amd64/cockroach $COCKROACHDB
-    cp -i cockroach-v20.1.0.linux-amd64/cockroach /usr/local/bin/
+    cp cockroach-v20.1.0.linux-amd64/cockroach $COCKROACHDB
+    # cp -i cockroach-v20.1.0.linux-amd64/cockroach /usr/local/bin/
   else
     output_section "Using cached CockroachDB"
   fi
