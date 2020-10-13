@@ -1,5 +1,5 @@
 function download_nakama_binary() {
-  NAKAMA_BINARY_URL=https://github.com/heroiclabs/nakama/releases/download/v2.12.0/nakama-2.12.0-linux-amd64.tar.gz
+  NAKAMA_BINARY_URL=https://github.com/heroiclabs/nakama/releases/download/v2.14.0/nakama-2.14.0-linux-amd64.tar.gz
 
   if [ ! -f $CACHE_DIR/nakama ]; then
     output_section "Downloading Nakama Binary..."
