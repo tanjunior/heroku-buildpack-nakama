@@ -34,5 +34,6 @@ function migrate_database_schema() {
 }
 
 function start_nakama_server() {
-  $CACHE_DIR/nakama/nakama
+  cd $CACHE_DIR/nakama/
+  nakama
 }
