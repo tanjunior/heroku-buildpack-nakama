@@ -1,5 +1,5 @@
 function download_nakama_binary() {
-  NAKAMA_BINARY_URL="https://drive.google.com/u/0/uc?id=1kvlhk_vhv7ioeGQsjdXNBbwznjoPhS_Y&export=download"
+  NAKAMA_BINARY_URL="https://drive.google.com/u/0/uc?id=1qjCneJ6-5I6CjUlxeCgv1cHlMsi0UjnM&export=download"
 
   if [ ! -f $CACHE_DIR/nakama ]; then
     output_section "Downloading Nakama Binary..."
