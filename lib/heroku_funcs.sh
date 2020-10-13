@@ -26,11 +26,11 @@ function download_cockroachdb() {
 
 function migrate_database_schema() {
   output_section "Migrating the database schema..."
-  nakama migrate up
+  $CACHE_DIR/nakama/nakama migrate up
   output_section "Starting the database server..."
-  cockroach start --background --insecure --store=path="./cdb-store1/"
+  $CACHE_DIR/cockroachdb/cockroach start --background --insecure --store=path="./cdb-store1/"
 }
 
 function start_nakama_server() {
-  nakama
+  $CACHE_DIR/nakama/nakama
 }
