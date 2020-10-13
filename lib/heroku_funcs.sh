@@ -1,9 +1,10 @@
 function download_nakama_binary() {
-  NAKAMA_BINARY_URL="https://drive.google.com/u/0/uc?id=1qjCneJ6-5I6CjUlxeCgv1cHlMsi0UjnM&export=download"
+  NAKAMA_BINARY_URL="https://github.com/heroiclabs/nakama/releases/download/v2.14.0/nakama-2.14.0-linux-amd64.tar.gz"
 
   if [ ! -f $CACHE_DIR/nakama ]; then
     output_section "Downloading Nakama Binary..."
     curl -s $NAKAMA_BINARY_URL -o nakama.zip || exit 1
+    curl -L $NAKAMA_BINARY_URL | tar -xz - -C /
     unzip nakama.zip
     cp nakama-2.12.0-linux-amd64 $CACHE_DIR/nakama
     # cp -i nakama /usr/local/bin
