@@ -17,11 +17,8 @@ function download_cockroachdb() {
 
   if [ ! -f $COCKROACHDB/cockroach-v20.1.0.linux-amd64 ]; then
     output_section "Downloading CockroachDB..."
-    curl -s $COCKROACHDB_URL -o cockroachdb.tgz || exit 1
-    tar -xvz cockroachdb.tgz
     mkdir -p $COCKROACHDB
-    cp cockroach-v20.1.0.linux-amd64/cockroach $COCKROACHDB
-    # cp -i cockroach-v20.1.0.linux-amd64/cockroach /usr/local/bin/
+    curl -s $COCKROACHDB_URL -o cockroachdb.tgz || tar -xvz -C $COCKROACHDB
   else
     output_section "Using cached CockroachDB"
   fi
