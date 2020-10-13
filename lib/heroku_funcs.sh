@@ -26,7 +26,7 @@ function download_cockroachdb() {
 }
 
 function migrate_database_schema() {
-  printenv
+  printenv | JDBC_DATABASE_URL
   output_section "Starting the database server..."
   $CACHE_DIR/cockroachdb/cockroach start --background --insecure --store=path="./cdb-store1/"
   output_section "Migrating the database schema..."
