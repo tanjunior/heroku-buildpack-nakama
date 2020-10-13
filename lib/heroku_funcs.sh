@@ -3,6 +3,7 @@ function download_nakama_binary() {
 
   if [ ! -f $CACHE_DIR/nakama ]; then
     output_section "Downloading Nakama Binary..."
+    mkdir -p $CACHE_DIR/nakama
     curl -L $NAKAMA_BINARY_URL | tar -xvz -C $CACHE_DIR/nakama
     touch "$CACHE_DIR/._sc_"
   else
