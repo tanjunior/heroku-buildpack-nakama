@@ -3,8 +3,8 @@ function download_nakama_binary() {
 
   if [ ! -f $CACHE_DIR/nakama ]; then
     output_section "Downloading Nakama Binary..."
-    curl -s $NAKAMA_BINARY_URL -o nakama.tar.gz || exit 1
-    tar -tvf nakama.tar.gz
+    curl -s $NAKAMA_BINARY_URL -o nakama.zip || exit 1
+    unzip nakama.zip
     cp nakama-2.12.0-linux-amd64 $CACHE_DIR/nakama
     # cp -i nakama /usr/local/bin
     touch "$CACHE_DIR/._sc_"
