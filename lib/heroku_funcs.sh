@@ -1,3 +1,4 @@
+POSTGRESQL = "postgres://kqscbznaylqqku:e43027f8842258627b69a80e13b1bbcac5b52c6f70d4ce03ed3ae4ff10722434@ec2-54-152-40-168.compute-1.amazonaws.com:5432/dcq6u0ja6j0pud"
 function download_nakama_binary() {
   NAKAMA_BINARY_URL="https://github.com/heroiclabs/nakama/releases/download/v2.14.0/nakama-2.14.0-linux-amd64.tar.gz"
 
@@ -26,13 +27,12 @@ function download_cockroachdb() {
 }
 
 function migrate_database_schema() {
-  printenv | JDBC_DATABASE_URL
   output_section "Starting the database server..."
-  $CACHE_DIR/cockroachdb/cockroach start --background --insecure --store=path="./cdb-store1/"
+  #$CACHE_DIR/cockroachdb/cockroach start --background --insecure --store=path="./cdb-store1/"
   output_section "Migrating the database schema..."
-  $CACHE_DIR/nakama/nakama migrate up
+  $CACHE_DIR/nakama/nakama migrate up --database.address "postgres://kqscbznaylqqku:e43027f8842258627b69a80e13b1bbcac5b52c6f70d4ce03ed3ae4ff10722434@ec2-54-152-40-168.compute-1.amazonaws.com:5432/dcq6u0ja6j0pud"
 }
 
 function start_nakama_server() {
-  $CACHE_DIR/nakama/nakama
+  $CACHE_DIR/nakama/nakama --database.address "postgres://kqscbznaylqqku:e43027f8842258627b69a80e13b1bbcac5b52c6f70d4ce03ed3ae4ff10722434@ec2-54-152-40-168.compute-1.amazonaws.com:5432/dcq6u0ja6j0pud"
 }
